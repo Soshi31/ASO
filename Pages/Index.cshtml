@@ -1,0 +1,53 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "TODO";
+}
+
+<section class="todo-page">
+    <div class="todo-header">
+        <h1>Lista TODO</h1>
+        <p>O aplicatie ASP.NET Core simpla pentru organizarea task-urilor.</p>
+    </div>
+
+    <form method="post" asp-page-handler="Add" class="todo-form">
+        <input asp-for="NewTodoTitle" placeholder="Scrie un task nou..." autocomplete="off" />
+        <button type="submit">Adauga</button>
+    </form>
+
+    @if (!Model.Todos.Any())
+    {
+        <div class="empty-state">
+            Nu exista task-uri. Adauga primul task folosind formularul de mai sus.
+        </div>
+    }
+    else
+    {
+        <ul class="todo-list">
+            @foreach (var todo in Model.Todos)
+            {
+                <li class="todo-item @(todo.IsDone ? "is-done" : "")">
+                    <form method="post" asp-page-handler="Toggle">
+                        <input type="hidden" name="id" value="@todo.Id" />
+                        <button type="submit" class="check-button" aria-label="Schimba status">
+                            @(todo.IsDone ? "OK" : "")
+                        </button>
+                    </form>
+
+                    <span>@todo.Title</span>
+
+                    <form method="post" asp-page-handler="Delete">
+                        <input type="hidden" name="id" value="@todo.Id" />
+                        <button type="submit" class="delete-button">Sterge</button>
+                    </form>
+                </li>
+            }
+        </ul>
+    }
+
+    <div class="todo-summary">
+        <span>Total: @Model.Todos.Count</span>
+        <span>Finalizate: @Model.Todos.Count(todo => todo.IsDone)</span>
+        <span>Ramase: @Model.Todos.Count(todo => !todo.IsDone)</span>
+    </div>
+</section>

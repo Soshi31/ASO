@@ -1,0 +1,145 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.todo-page {
+  max-width: 760px;
+  margin: 40px auto;
+}
+
+.todo-header {
+  margin-bottom: 24px;
+}
+
+.todo-header h1 {
+  margin-bottom: 8px;
+  font-size: 2.25rem;
+}
+
+.todo-header p {
+  color: #5f6872;
+  margin: 0;
+}
+
+.todo-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.todo-form input {
+  flex: 1;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 12px 14px;
+}
+
+.todo-form button,
+.delete-button {
+  border: 0;
+  border-radius: 6px;
+  padding: 10px 16px;
+  background: #2563eb;
+  color: white;
+}
+
+.todo-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  background: white;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.todo-item:last-child {
+  border-bottom: 0;
+}
+
+.todo-item span {
+  flex: 1;
+}
+
+.todo-item.is-done span {
+  color: #64748b;
+  text-decoration: line-through;
+}
+
+.check-button {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #94a3b8;
+  border-radius: 6px;
+  background: white;
+  color: #16a34a;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.delete-button {
+  background: #dc2626;
+}
+
+.empty-state {
+  padding: 18px;
+  border: 1px dashed #94a3b8;
+  border-radius: 8px;
+  color: #64748b;
+  background: #f8fafc;
+}
+
+.todo-summary {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+  color: #475569;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 576px) {
+  .todo-form,
+  .todo-summary {
+    flex-direction: column;
+  }
+
+  .todo-form button {
+    width: 100%;
+  }
+}
+
+.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
+  color: var(--bs-secondary-color);
+  text-align: end;
+}
+
+.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
+  text-align: start;
+}
