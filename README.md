@@ -1,4 +1,4 @@
-# TodoBasic
+# ASO - TodoBasic
 
 Aplicatie TODO simpla facuta cu ASP.NET Core Razor Pages.
 
