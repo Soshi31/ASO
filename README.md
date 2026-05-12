@@ -1,18 +1,9 @@
-# ASO - TodoBasic
+# ASO
 
-Aplicatie TODO simpla facuta cu ASP.NET Core Razor Pages.
+Repository pentru temele ASO si aplicatia TODO.
 
-Functionalitati:
+Structura:
 
-- adaugare task nou
-- marcare task ca finalizat/nefinalizat
-- stergere task
-- afisare total task-uri, task-uri finalizate si task-uri ramase
+- `Tema1Si2/` - tema 1 si tema 2
+- `TodoApp/` - aplicatia TODO ASP.NET Core Razor Pages
 
-Datele sunt tinute in memorie, deci lista se reseteaza cand aplicatia este oprita.
-
-Pornire:
-
-```powershell
-dotnet run
-```
