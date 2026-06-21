@@ -1,0 +1,12 @@
+1. Numele wiki.local este rezolvat către adresa IP 1.2.3.4, însă hostul nu răspunde la cererile ICMP, rezultând eroarea "Request timed out".
+
+2.Răspunsul provine de la serverul DNS configurat (192.168.0.1). Serverul DNS nu găsește domeniul wiki.local și returnează eroarea "Non-existent domain".
+
+3. Pachetele sunt rutate prin mai multe echipamente de rețea, însă destinația 1.2.3.4 nu răspunde, astfel traseul se întrerupe după hopul 8.
+
+4.După modificarea fișierului hosts, numele wiki.local se rezolvă către adresa 127.0.0.1 în loc de 1.2.3.4. 
+Ping-ul primește răspuns de la 127.0.0.1 și nu mai există pierderi de pachete pentru că fișierul hosts redirecționează acum wiki.local către localhost (127.0.0.1), adică propriul calculator, care răspunde la cererile de rețea.
+
+5.Problema a fost cauzată de o intrare greșită în fișierul hosts, care asocia numele wiki.local cu adresa IP 1.2.3.4. Din această cauză, calculatorul încerca să contacteze o destinație greșită.
+O astfel de eroare poate fi introdusă de un script de configurare, o politică de grup (Group Policy), un sistem de management al configurației (Ansible, Puppet, SCCM) sau un software VPN care modifică automat setările de rețea.
+Pentru a o prevenii aș folosi gestionarea centralizată a configurațiilor, verificări automate ale fișierului hosts și monitorizarea modificărilor pentru a detecta rapid orice configurare incorectă.

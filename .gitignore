@@ -1,0 +1,5 @@
+bin/
+obj/
+.nuget-appdata/
+.data-protection-keys/
+server.log
